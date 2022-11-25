@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin.interfaces;
+package com.citconpay.dropin.interfaces;
 
 public interface AnimationFinishedListener {
     void onAnimationFinished();

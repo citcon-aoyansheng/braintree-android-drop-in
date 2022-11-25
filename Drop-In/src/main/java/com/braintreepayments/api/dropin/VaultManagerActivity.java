@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin;
+package com.citconpay.dropin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,26 +10,26 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ViewSwitcher;
 
-import com.braintreepayments.api.PaymentMethod;
-import com.braintreepayments.api.dropin.adapters.VaultManagerPaymentMethodsAdapter;
-import com.braintreepayments.api.dropin.view.PaymentMethodItemView;
-import com.braintreepayments.api.exceptions.InvalidArgumentException;
-import com.braintreepayments.api.exceptions.PaymentMethodDeleteException;
-import com.braintreepayments.api.interfaces.BraintreeErrorListener;
-import com.braintreepayments.api.interfaces.PaymentMethodNonceDeletedListener;
-import com.braintreepayments.api.models.PaymentMethodNonce;
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static com.braintreepayments.api.dropin.DropInActivity.EXTRA_PAYMENT_METHOD_NONCES;
+import com.braintreepayments.api.PaymentMethod;
+import com.braintreepayments.api.exceptions.InvalidArgumentException;
+import com.braintreepayments.api.exceptions.PaymentMethodDeleteException;
+import com.braintreepayments.api.interfaces.BraintreeErrorListener;
+import com.braintreepayments.api.interfaces.PaymentMethodNonceDeletedListener;
+import com.braintreepayments.api.models.PaymentMethodNonce;
+import com.citconpay.dropin.adapters.VaultManagerPaymentMethodsAdapter;
+import com.citconpay.dropin.view.PaymentMethodItemView;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static com.citconpay.dropin.DropInActivity.EXTRA_PAYMENT_METHOD_NONCES;
 
 public class VaultManagerActivity extends BaseActivity implements PaymentMethodNonceDeletedListener,
         BraintreeErrorListener, View.OnClickListener {

@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin.view;
+package com.citconpay.dropin.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ViewAnimator;
 
-import com.braintreepayments.api.dropin.R;
+import com.citconpay.dropin.R;
 
 public class AnimatedButtonView extends RelativeLayout implements OnClickListener {
 
@@ -61,7 +61,7 @@ public class AnimatedButtonView extends RelativeLayout implements OnClickListene
 
     @Override
     public void onClick(View view) {
-        showLoading();
+        //showLoading();
         if (mOnClickListener != null) {
             mOnClickListener.onClick(this);
         }

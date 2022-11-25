@@ -1,7 +1,9 @@
-package com.braintreepayments.api.dropin.view;
+package com.citconpay.dropin.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -10,18 +12,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
-import com.braintreepayments.api.dropin.DropInRequest;
-import com.braintreepayments.api.dropin.R;
-import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
+import com.citconpay.dropin.DropInRequest;
+import com.citconpay.dropin.R;
+import com.citconpay.dropin.interfaces.AddPaymentUpdateListener;
 import com.braintreepayments.api.exceptions.BraintreeError;
 import com.braintreepayments.api.exceptions.ErrorWithResponse;
 import com.braintreepayments.api.models.Authorization;
 import com.braintreepayments.api.models.Configuration;
-import com.braintreepayments.cardform.OnCardFormFieldFocusedListener;
-import com.braintreepayments.cardform.OnCardFormSubmitListener;
-import com.braintreepayments.cardform.view.CardEditText;
-import com.braintreepayments.cardform.view.CardForm;
+import com.citconpay.cardform.OnCardFormFieldFocusedListener;
+import com.citconpay.cardform.OnCardFormSubmitListener;
+import com.citconpay.cardform.view.CardEditText;
+import com.citconpay.cardform.view.CardForm;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditCardView extends LinearLayout implements OnCardFormFieldFocusedListener, OnClickListener,
@@ -177,14 +180,35 @@ public class EditCardView extends LinearLayout implements OnCardFormFieldFocused
     @Override
     public void onCardFormSubmit() {
         if (mCardForm.isValid()) {
-            mAnimatedButtonView.showLoading();
-
-            if (mListener != null) {
-                mListener.onPaymentUpdated(this);
-            }
+            Resources resources = getResources();
+            new AlertDialog.Builder(this.getContext(),
+                    R.style.Theme_AppCompat_Light_Dialog_Alert)
+                    .setTitle(R.string.bt_add_new_card_confirmation_title)
+                    .setMessage(R.string.bt_add_new_card_confirmation_description)
+                    .setPositiveButton(R.string.bt_yes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            submitCardForm();
+                        }
+                    })
+                    .setNegativeButton(R.string.bt_cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .create()
+                    .show();
         } else {
             mAnimatedButtonView.showButton();
             mCardForm.validate();
+        }
+    }
+
+    private void submitCardForm() {
+        mAnimatedButtonView.showLoading();
+
+        if (mListener != null) {
+            mListener.onPaymentUpdated(this);
         }
     }
 

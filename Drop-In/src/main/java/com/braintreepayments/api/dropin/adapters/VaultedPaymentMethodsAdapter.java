@@ -1,6 +1,5 @@
-package com.braintreepayments.api.dropin.adapters;
+package com.citconpay.dropin.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -8,42 +7,46 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.braintreepayments.api.PaymentMethod;
-import com.braintreepayments.api.dropin.DropInRequest;
-import com.braintreepayments.api.dropin.R;
-import com.braintreepayments.api.dropin.utils.PaymentMethodType;
-import com.braintreepayments.api.interfaces.PaymentMethodNonceCreatedListener;
-import com.braintreepayments.api.models.CardNonce;
-import com.braintreepayments.api.models.Configuration;
-import com.braintreepayments.api.models.PaymentMethodNonce;
-
-import java.util.List;
-
 import androidx.recyclerview.widget.RecyclerView;
 
-// NEXT MAJOR VERSION make this class package private
+import com.citconpay.dropin.DropInRequest;
+import com.citconpay.dropin.R;
+import com.citconpay.dropin.utils.PaymentMethodType;
+import com.braintreepayments.api.interfaces.PaymentMethodNonceCreatedListener;
+import com.braintreepayments.api.models.CardNonce;
+import com.braintreepayments.api.models.PaymentMethodNonce;
+
 public class VaultedPaymentMethodsAdapter extends RecyclerView.Adapter<VaultedPaymentMethodsAdapter.ViewHolder> {
 
     private final PaymentMethodNonceCreatedListener mSelectedListener;
 
-    private final List<PaymentMethodNonce> mPaymentMethodNonces;
+    //private final List<PaymentMethodNonce> mPaymentMethodNonces;
     private AvailablePaymentMethodNonceList mAvailablePaymentMethodNonces;
 
+    private PaymentMethodType mPaymentMethod;
+
     public VaultedPaymentMethodsAdapter(PaymentMethodNonceCreatedListener listener,
-                                        List<PaymentMethodNonce> paymentMethodNonces) {
+                                        AvailablePaymentMethodNonceList paymentMethodNonces,
+                                        DropInRequest dropInRequest) {
         mSelectedListener = listener;
-        mPaymentMethodNonces = paymentMethodNonces;
+        mAvailablePaymentMethodNonces = paymentMethodNonces;
+        mPaymentMethod = dropInRequest.getPaymentMethodType();
     }
 
-    public void setup(Context context, Configuration configuration, DropInRequest dropInRequest, boolean googlePayEnabled, boolean unionpaySupported) {
-        mAvailablePaymentMethodNonces = new AvailablePaymentMethodNonceList(
-                context, configuration, mPaymentMethodNonces, dropInRequest, googlePayEnabled);
-    }
+    /*public void setup(Context context, Configuration configuration, DropInRequest dropInRequest,
+                      boolean googlePayEnabled, boolean unionpaySupported) {
+        mPaymentMethod = dropInRequest.getPaymentMethodType();
+        *//*mAvailablePaymentMethodNonces = new AvailablePaymentMethodNonceList(
+                context, configuration, mPaymentMethodNonces, dropInRequest, googlePayEnabled);*//*
+    }*/
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.bt_vaulted_payment_method_card,
                 parent, false));
+        /*return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.ct_vaulted_payment_method_item,
+                parent, false));*/
+        //return new ViewHolder(new PaymentMethodItemView(parent.getContext()));
     }
 
     @Override
@@ -63,7 +66,12 @@ public class VaultedPaymentMethodsAdapter extends RecyclerView.Adapter<VaultedPa
         holder.itemView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSelectedListener.onPaymentMethodNonceCreated(paymentMethodNonce);
+                // payment mode
+                if(mPaymentMethod != PaymentMethodType.NONE)
+                    mSelectedListener.onPaymentMethodNonceCreated(paymentMethodNonce);
+                else {
+                    //Todo: Management mode
+                }
             }
         });
     }

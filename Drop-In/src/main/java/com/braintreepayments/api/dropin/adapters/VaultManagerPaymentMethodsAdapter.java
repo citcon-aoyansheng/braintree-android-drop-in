@@ -1,9 +1,9 @@
-package com.braintreepayments.api.dropin.adapters;
+package com.citconpay.dropin.adapters;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.braintreepayments.api.dropin.view.PaymentMethodItemView;
+import com.citconpay.dropin.view.PaymentMethodItemView;
 import com.braintreepayments.api.models.PaymentMethodNonce;
 
 import java.util.ArrayList;

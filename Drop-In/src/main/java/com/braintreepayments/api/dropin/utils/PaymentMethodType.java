@@ -1,8 +1,8 @@
-package com.braintreepayments.api.dropin.utils;
+package com.citconpay.dropin.utils;
 
-import com.braintreepayments.api.dropin.R;
+import com.citconpay.dropin.R;
 import com.braintreepayments.api.models.PaymentMethodNonce;
-import com.braintreepayments.cardform.utils.CardType;
+import com.citconpay.cardform.utils.CardType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,8 @@ public enum PaymentMethodType {
     UNIONPAY(CardType.UNIONPAY.getFrontResource(), R.drawable.bt_ic_vaulted_unionpay, R.string.bt_descriptor_unionpay, "UnionPay", CardType.UNIONPAY),
     HIPER(CardType.HIPER.getFrontResource(), R.drawable.bt_ic_vaulted_hiper, R.string.bt_descriptor_hiper, "Hiper", CardType.HIPER),
     HIPERCARD(CardType.HIPERCARD.getFrontResource(), R.drawable.bt_ic_vaulted_hipercard, R.string.bt_descriptor_hipercard, "Hipercard", CardType.HIPERCARD),
-    UNKNOWN(CardType.UNKNOWN.getFrontResource(), R.drawable.bt_ic_vaulted_unknown, R.string.bt_descriptor_unknown, "Unknown", CardType.UNKNOWN);
+    UNKNOWN(CardType.UNKNOWN.getFrontResource(), R.drawable.bt_ic_vaulted_unknown, R.string.bt_descriptor_unknown, "Unknown", CardType.UNKNOWN),
+    NONE(0,0,0,"None",null);
 
     private final int mIconDrawable;
     private final int mVaultedDrawable;

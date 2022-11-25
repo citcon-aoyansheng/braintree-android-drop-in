@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin.view;
+package com.citconpay.dropin.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -11,18 +11,18 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
-import com.braintreepayments.api.dropin.R;
-import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
-import com.braintreepayments.api.dropin.utils.PaymentMethodType;
+import com.citconpay.dropin.R;
+import com.citconpay.dropin.interfaces.AddPaymentUpdateListener;
+import com.citconpay.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.exceptions.BraintreeError;
 import com.braintreepayments.api.exceptions.ErrorWithResponse;
 import com.braintreepayments.api.models.Configuration;
-import com.braintreepayments.cardform.OnCardFormSubmitListener;
-import com.braintreepayments.cardform.OnCardFormValidListener;
-import com.braintreepayments.cardform.utils.CardType;
-import com.braintreepayments.cardform.view.CardEditText.OnCardTypeChangedListener;
-import com.braintreepayments.cardform.view.CardForm;
-import com.braintreepayments.cardform.view.SupportedCardTypesView;
+import com.citconpay.cardform.OnCardFormSubmitListener;
+import com.citconpay.cardform.OnCardFormValidListener;
+import com.citconpay.cardform.utils.CardType;
+import com.citconpay.cardform.view.CardEditText.OnCardTypeChangedListener;
+import com.citconpay.cardform.view.CardForm;
+import com.citconpay.cardform.view.SupportedCardTypesView;
 
 import java.util.Arrays;
 import java.util.HashSet;

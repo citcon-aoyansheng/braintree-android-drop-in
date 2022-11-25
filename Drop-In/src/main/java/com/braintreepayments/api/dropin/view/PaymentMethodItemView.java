@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin.view;
+package com.citconpay.dropin.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.braintreepayments.api.dropin.R;
-import com.braintreepayments.api.dropin.utils.PaymentMethodType;
+import com.citconpay.dropin.R;
+import com.citconpay.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.models.CardNonce;
 import com.braintreepayments.api.models.PaymentMethodNonce;
 

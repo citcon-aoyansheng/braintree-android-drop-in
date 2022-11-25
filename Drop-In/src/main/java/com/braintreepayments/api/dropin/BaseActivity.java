@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin;
+package com.citconpay.dropin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,11 +65,6 @@ public class BaseActivity extends AppCompatActivity {
     protected boolean shouldRequestThreeDSecureVerification() {
         boolean hasAmount = !TextUtils.isEmpty(mDropInRequest.getAmount()) ||
                 (mDropInRequest.getThreeDSecureRequest() != null && !TextUtils.isEmpty(mDropInRequest.getThreeDSecureRequest().getAmount()));
-
-        // TODO: NEXT_MAJOR_VERSION use BraintreeClient#getConfiguration and don't cache configuration in memory
-        if (mConfiguration == null) {
-            return false;
-        }
 
         return mDropInRequest.shouldRequestThreeDSecureVerification() &&
                 mConfiguration.isThreeDSecureEnabled() &&

@@ -1,4 +1,4 @@
-package com.braintreepayments.api.dropin;
+package com.citconpay.dropin;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,11 +6,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.braintreepayments.api.DataCollector;
+import com.citconpay.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.models.GooglePaymentRequest;
 import com.braintreepayments.api.models.PayPalRequest;
 import com.braintreepayments.api.models.ThreeDSecurePostalAddress;
 import com.braintreepayments.api.models.ThreeDSecureRequest;
-import com.braintreepayments.cardform.view.CardForm;
+import com.citconpay.cardform.view.CardForm;
 
 /**
  * Used to start {@link DropInActivity} with specified options.
@@ -40,9 +41,16 @@ public class DropInRequest implements Parcelable {
     private boolean mShowCheckBoxToAllowVaultOverride = false;
     private boolean mVaultVenmo = false;
 
+    private PaymentMethodType mPaymentMethodType;
+
     private int mCardholderNameStatus = CardForm.FIELD_DISABLED;
 
     public DropInRequest() {}
+
+    public DropInRequest paymentMethodType(PaymentMethodType type) {
+        mPaymentMethodType = type;
+        return this;
+    }
 
     /**
      * Provide authorization allowing this client to communicate with Braintree. Either
@@ -178,7 +186,7 @@ public class DropInRequest implements Parcelable {
 
     /**
      * @param maskCardNumber {@code true} to mask the card number when the field is not focused.
-     * See {@link com.braintreepayments.cardform.view.CardEditText} for more details. Defaults to
+     * See {@link com.citconpay.cardform.view.CardEditText} for more details. Defaults to
      * {@code false}.
      */
     public DropInRequest maskCardNumber(boolean maskCardNumber) {
@@ -259,6 +267,8 @@ public class DropInRequest implements Parcelable {
         return new Intent(context, DropInActivity.class)
                 .putExtra(EXTRA_CHECKOUT_REQUEST, this);
     }
+
+    public PaymentMethodType getPaymentMethodType() { return mPaymentMethodType; }
 
     public String getAuthorization() {
         return mAuthorization;
@@ -347,6 +357,7 @@ public class DropInRequest implements Parcelable {
         dest.writeByte(mMaskCardNumber ? (byte) 1 : (byte) 0);
         dest.writeByte(mMaskSecurityCode ? (byte) 1 : (byte) 0);
         dest.writeByte(mVaultManagerEnabled ? (byte) 1 : (byte) 0);
+        dest.writeSerializable(mPaymentMethodType);
         dest.writeInt(mCardholderNameStatus);
         dest.writeByte(mDefaultVaultValue ? (byte) 1 : (byte) 0);
         dest.writeByte(mShowCheckBoxToAllowVaultOverride ? (byte) 1 : (byte) 0);
@@ -368,6 +379,7 @@ public class DropInRequest implements Parcelable {
         mMaskCardNumber = in.readByte() != 0;
         mMaskSecurityCode = in.readByte() != 0;
         mVaultManagerEnabled = in.readByte() != 0;
+        mPaymentMethodType = (PaymentMethodType) in.readSerializable();
         mCardholderNameStatus = in.readInt();
         mDefaultVaultValue = in.readByte() != 0;
         mShowCheckBoxToAllowVaultOverride = in.readByte() != 0;

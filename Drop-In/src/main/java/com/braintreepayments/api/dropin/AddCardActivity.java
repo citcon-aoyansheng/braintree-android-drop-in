@@ -1,20 +1,19 @@
-package com.braintreepayments.api.dropin;
+package com.citconpay.dropin;
 
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ViewSwitcher;
 
+import androidx.annotation.IntDef;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import com.braintreepayments.api.Card;
 import com.braintreepayments.api.ThreeDSecure;
 import com.braintreepayments.api.UnionPay;
-import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
-import com.braintreepayments.api.dropin.view.AddCardView;
-import com.braintreepayments.api.dropin.view.EditCardView;
-import com.braintreepayments.api.dropin.view.EnrollmentCardView;
 import com.braintreepayments.api.exceptions.AuthenticationException;
 import com.braintreepayments.api.exceptions.AuthorizationException;
 import com.braintreepayments.api.exceptions.ConfigurationException;
@@ -36,14 +35,14 @@ import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.braintreepayments.api.models.ThreeDSecureRequest;
 import com.braintreepayments.api.models.UnionPayCapabilities;
 import com.braintreepayments.api.models.UnionPayCardBuilder;
-import com.braintreepayments.cardform.view.CardForm;
+import com.citconpay.dropin.interfaces.AddPaymentUpdateListener;
+import com.citconpay.dropin.view.AddCardView;
+import com.citconpay.dropin.view.EditCardView;
+import com.citconpay.dropin.view.EnrollmentCardView;
+import com.citconpay.cardform.view.CardForm;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import androidx.annotation.IntDef;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -97,7 +96,8 @@ public class AddCardActivity extends BaseActivity implements ConfigurationListen
 
         setSupportActionBar((Toolbar) findViewById(R.id.bt_toolbar));
         mActionBar = getSupportActionBar();
-        mActionBar.setDisplayHomeAsUpEnabled(true);
+        if(mActionBar != null)
+            mActionBar.setDisplayHomeAsUpEnabled(true);
         mAddCardView.setAddPaymentUpdatedListener(this);
         mEditCardView.setAddPaymentUpdatedListener(this);
         mEnrollmentCardView.setAddPaymentUpdatedListener(this);
