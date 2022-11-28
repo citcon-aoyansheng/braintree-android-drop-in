@@ -1,4 +1,4 @@
-package com.citconpay.dropin.adapters;
+package com.braintreepayments.api.dropin.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.citconpay.dropin.DropInRequest;
-import com.citconpay.dropin.R;
-import com.citconpay.dropin.utils.PaymentMethodType;
+import com.braintreepayments.api.dropin.DropInRequest;
+import com.braintreepayments.api.dropin.R;
+import com.braintreepayments.api.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.models.Configuration;
 
 import java.util.ArrayList;

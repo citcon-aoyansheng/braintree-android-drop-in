@@ -1,9 +1,9 @@
-package com.citconpay.dropin.adapters;
+package com.braintreepayments.api.dropin.adapters;
 
 import android.content.Context;
 
-import com.citconpay.dropin.DropInRequest;
-import com.citconpay.dropin.utils.PaymentMethodType;
+import com.braintreepayments.api.dropin.DropInRequest;
+import com.braintreepayments.api.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.models.CardNonce;
 import com.braintreepayments.api.models.Configuration;
 import com.braintreepayments.api.models.GooglePaymentCardNonce;

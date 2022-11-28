@@ -1,4 +1,4 @@
-package com.citconpay.dropin;
+package com.braintreepayments.api.dropin;
 
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
@@ -35,10 +35,10 @@ import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.braintreepayments.api.models.ThreeDSecureRequest;
 import com.braintreepayments.api.models.UnionPayCapabilities;
 import com.braintreepayments.api.models.UnionPayCardBuilder;
-import com.citconpay.dropin.interfaces.AddPaymentUpdateListener;
-import com.citconpay.dropin.view.AddCardView;
-import com.citconpay.dropin.view.EditCardView;
-import com.citconpay.dropin.view.EnrollmentCardView;
+import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
+import com.braintreepayments.api.dropin.view.AddCardView;
+import com.braintreepayments.api.dropin.view.EditCardView;
+import com.braintreepayments.api.dropin.view.EnrollmentCardView;
 import com.citconpay.cardform.view.CardForm;
 
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.citconpay.dropin;
+package com.braintreepayments.api.dropin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,14 +22,14 @@ import com.braintreepayments.api.exceptions.PaymentMethodDeleteException;
 import com.braintreepayments.api.interfaces.BraintreeErrorListener;
 import com.braintreepayments.api.interfaces.PaymentMethodNonceDeletedListener;
 import com.braintreepayments.api.models.PaymentMethodNonce;
-import com.citconpay.dropin.adapters.VaultManagerPaymentMethodsAdapter;
-import com.citconpay.dropin.view.PaymentMethodItemView;
+import com.braintreepayments.api.dropin.adapters.VaultManagerPaymentMethodsAdapter;
+import com.braintreepayments.api.dropin.view.PaymentMethodItemView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static com.citconpay.dropin.DropInActivity.EXTRA_PAYMENT_METHOD_NONCES;
+import static com.braintreepayments.api.dropin.DropInActivity.EXTRA_PAYMENT_METHOD_NONCES;
 
 public class VaultManagerActivity extends BaseActivity implements PaymentMethodNonceDeletedListener,
         BraintreeErrorListener, View.OnClickListener {

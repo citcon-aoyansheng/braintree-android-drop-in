@@ -1,6 +1,6 @@
-package com.citconpay.dropin.utils;
+package com.braintreepayments.api.dropin.utils;
 
-import com.citconpay.dropin.R;
+import com.braintreepayments.api.dropin.R;
 import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.citconpay.cardform.utils.CardType;
 

@@ -1,4 +1,4 @@
-package com.citconpay.dropin;
+package com.braintreepayments.api.dropin;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.braintreepayments.api.DataCollector;
-import com.citconpay.dropin.utils.PaymentMethodType;
+import com.braintreepayments.api.dropin.utils.PaymentMethodType;
 import com.braintreepayments.api.models.GooglePaymentRequest;
 import com.braintreepayments.api.models.PayPalRequest;
 import com.braintreepayments.api.models.ThreeDSecurePostalAddress;

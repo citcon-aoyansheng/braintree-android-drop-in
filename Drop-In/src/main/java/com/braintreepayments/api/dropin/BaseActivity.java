@@ -1,4 +1,4 @@
-package com.citconpay.dropin;
+package com.braintreepayments.api.dropin;
 
 import android.content.Intent;
 import android.os.Bundle;

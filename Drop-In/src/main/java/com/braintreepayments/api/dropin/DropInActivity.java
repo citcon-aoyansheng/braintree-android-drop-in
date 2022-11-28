@@ -1,4 +1,4 @@
-package com.citconpay.dropin;
+package com.braintreepayments.api.dropin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,12 +47,12 @@ import com.braintreepayments.api.models.GooglePaymentCardNonce;
 import com.braintreepayments.api.models.PayPalRequest;
 import com.braintreepayments.api.models.PaymentMethodNonce;
 import com.braintreepayments.api.models.ThreeDSecureRequest;
-import com.citconpay.dropin.adapters.AvailablePaymentMethodNonceList;
-import com.citconpay.dropin.adapters.SupportedPaymentMethodsAdapter;
-import com.citconpay.dropin.adapters.SupportedPaymentMethodsAdapter.PaymentMethodSelectedListener;
-import com.citconpay.dropin.adapters.VaultedPaymentMethodsAdapter;
-import com.citconpay.dropin.interfaces.AnimationFinishedListener;
-import com.citconpay.dropin.utils.PaymentMethodType;
+import com.braintreepayments.api.dropin.adapters.AvailablePaymentMethodNonceList;
+import com.braintreepayments.api.dropin.adapters.SupportedPaymentMethodsAdapter;
+import com.braintreepayments.api.dropin.adapters.SupportedPaymentMethodsAdapter.PaymentMethodSelectedListener;
+import com.braintreepayments.api.dropin.adapters.VaultedPaymentMethodsAdapter;
+import com.braintreepayments.api.dropin.interfaces.AnimationFinishedListener;
+import com.braintreepayments.api.dropin.utils.PaymentMethodType;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
