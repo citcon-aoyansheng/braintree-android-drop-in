@@ -11,7 +11,7 @@ import com.braintreepayments.api.models.GooglePaymentRequest;
 import com.braintreepayments.api.models.PayPalRequest;
 import com.braintreepayments.api.models.ThreeDSecurePostalAddress;
 import com.braintreepayments.api.models.ThreeDSecureRequest;
-import com.citconpay.cardform.view.CardForm;
+import com.braintreepayments.cardform.view.CardForm;
 
 /**
  * Used to start {@link DropInActivity} with specified options.
@@ -186,7 +186,7 @@ public class DropInRequest implements Parcelable {
 
     /**
      * @param maskCardNumber {@code true} to mask the card number when the field is not focused.
-     * See {@link com.citconpay.cardform.view.CardEditText} for more details. Defaults to
+     * See {@link com.braintreepayments.cardform.view.CardEditText} for more details. Defaults to
      * {@code false}.
      */
     public DropInRequest maskCardNumber(boolean maskCardNumber) {

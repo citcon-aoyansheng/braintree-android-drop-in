@@ -20,8 +20,8 @@ import com.braintreepayments.api.dropin.R;
 import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
 import com.braintreepayments.api.exceptions.BraintreeError;
 import com.braintreepayments.api.exceptions.ErrorWithResponse;
-import com.citconpay.cardform.utils.ViewUtils;
-import com.citconpay.cardform.view.ErrorEditText;
+import com.braintreepayments.cardform.utils.ViewUtils;
+import com.braintreepayments.cardform.view.ErrorEditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 

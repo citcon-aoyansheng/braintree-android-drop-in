@@ -2,7 +2,7 @@ package com.braintreepayments.api.dropin.utils;
 
 import com.braintreepayments.api.dropin.R;
 import com.braintreepayments.api.models.PaymentMethodNonce;
-import com.citconpay.cardform.utils.CardType;
+import com.braintreepayments.cardform.utils.CardType;
 
 import java.util.ArrayList;
 import java.util.List;

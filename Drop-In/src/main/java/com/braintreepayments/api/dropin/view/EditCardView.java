@@ -19,10 +19,10 @@ import com.braintreepayments.api.exceptions.BraintreeError;
 import com.braintreepayments.api.exceptions.ErrorWithResponse;
 import com.braintreepayments.api.models.Authorization;
 import com.braintreepayments.api.models.Configuration;
-import com.citconpay.cardform.OnCardFormFieldFocusedListener;
-import com.citconpay.cardform.OnCardFormSubmitListener;
-import com.citconpay.cardform.view.CardEditText;
-import com.citconpay.cardform.view.CardForm;
+import com.braintreepayments.cardform.OnCardFormFieldFocusedListener;
+import com.braintreepayments.cardform.OnCardFormSubmitListener;
+import com.braintreepayments.cardform.view.CardEditText;
+import com.braintreepayments.cardform.view.CardForm;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

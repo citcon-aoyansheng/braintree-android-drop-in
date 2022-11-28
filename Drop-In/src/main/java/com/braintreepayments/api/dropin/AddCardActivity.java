@@ -39,7 +39,7 @@ import com.braintreepayments.api.dropin.interfaces.AddPaymentUpdateListener;
 import com.braintreepayments.api.dropin.view.AddCardView;
 import com.braintreepayments.api.dropin.view.EditCardView;
 import com.braintreepayments.api.dropin.view.EnrollmentCardView;
-import com.citconpay.cardform.view.CardForm;
+import com.braintreepayments.cardform.view.CardForm;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
